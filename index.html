@@ -30,9 +30,7 @@ https://www.tooplate.com/view/2120-Kais-resume
     <nav class="navbar navbar-expand-lg">
         <div class="container">
 
-            <a class="navbar-brand" href="#">
-                Kais Resume
-            </a>
+           
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -62,9 +60,18 @@ https://www.tooplate.com/view/2120-Kais-resume
                     </li>
                 </ul>
 
-                <div class="mt-lg-0 mt-3 mb-4 mb-lg-0">
-                  <a href="#" class="custom-btn btn" id="download-cv">Download CV</a>
-              </div>
+                <div class="mt-lg-0 mt-3 mb-4 mb-lg-0" id="Download">
+                    <a class="custom-btn btn" id="download-cv" onclick="togglePopup()">Download CV</a>
+                    <div class="popup" id="popup">
+                        <p>Choose your CV version:</p>
+                        <ul>
+                            <li><a id="download-cv-fr">French</a></li>
+                            <li><a id="download-cv-ang">English</a></li>
+                        </ul>
+                        <button onclick="togglePopup()" class="close-popup">Close</button>
+                    </div>
+                </div>
+                
             </div>
 
         </div>
@@ -82,15 +89,13 @@ https://www.tooplate.com/view/2120-Kais-resume
                   </div>
 
                    <div class="d-flex flex-column justify-content-center align-items-center col-lg-7 col-md-7 col-12">
-                        <div class="hero-text">
-
-                            <h1 class="hero-title">👋 Welcome To My Area!</h1>
-
-                            <a href="#" class="email-link">
-                                Enjoy The View! :) 
-                            </a>
-                          
-                        </div>
+                    <div class="hero-text">
+                        <h1 class="hero-title">👋 Welcome To My Area!</h1>
+                        <a href="https://www.linkedin.com/in/kais-ben-hadj-hassen-22355a21b/" class="email-link">
+                            Enjoy The View Or Tap To Visit My Linkedin Account! 😊
+                        </a>
+                    </div>
+                    
                     </div>
 
             </div>
@@ -101,7 +106,7 @@ https://www.tooplate.com/view/2120-Kais-resume
     <section class="about section-padding" id="about">
         <div class="container">
             <div class="row">
-                <h3>Software Engineer (.NET Developper) | Prompt Engineer</h3>
+                <h3>Software Engineer | Prompt Engineer</h3>
                 <div class="col-lg-6 col-md-6 col-12">
                     <p>Experienced professional in Prompt Engineering and IT development, specializing in Microsoft .NET Framework, C#, ASP.NET, Blazor (server and WebAssembly) technologies and SQL databases.</p>
                     <p>Strong ability to adapt to various contexts and interlocutors.</p>
@@ -136,7 +141,7 @@ https://www.tooplate.com/view/2120-Kais-resume
   
               <!-- Langages de programmation -->
               <div class="col-lg-6 col-md-6 col-12 mb-4">
-                  <h4><i class="fas fa-code"></i> Langages de Programmation</h4>
+                  <h4><i class="fas fa-code"></i> Programming Languages</h4>
                   <ul class="skill-list">
                       <li><span class="badge bg-primary">C#</span></li>
                       <li><span class="badge bg-secondary">Java</span></li>
@@ -160,7 +165,7 @@ https://www.tooplate.com/view/2120-Kais-resume
   
               <!-- Bases de Données -->
               <div class="col-lg-6 col-md-6 col-12 mb-4">
-                  <h4><i class="fas fa-database"></i> Bases de Données</h4>
+                  <h4><i class="fas fa-database"></i> Databases</h4>
                   <ul class="skill-list">
                       <li><span class="badge bg-primary">SQL Server</span></li>
                       <li><span class="badge bg-secondary">MySQL</span></li>
@@ -172,7 +177,7 @@ https://www.tooplate.com/view/2120-Kais-resume
   
               <!-- Autres Compétences -->
               <div class="col-lg-6 col-md-6 col-12">
-                  <h4><i class="fas fa-tools"></i> Autres Compétences</h4>
+                  <h4><i class="fas fa-tools"></i> Others</h4>
                   <ul class="skill-list">
                       <li><span class="badge bg-primary">UML</span></li>
                       <li><span class="badge bg-secondary">Docker, Jenkins, Kubernetes</span></li>
@@ -365,8 +370,8 @@ https://www.tooplate.com/view/2120-Kais-resume
                 <p class="mb-1">07 73 68 42 59</p>
 
                 <p>
-                    <a href="#">
-                        kais.belhadjhassen@gmail.com
+                    <a href="https://kais-bhs.github.io/Personal-Portfolio/">
+                        Visit-MyWebsite
                     <i class="fas fa-arrow-right custom-icon"></i>
                     </a>
                 </p>
@@ -387,11 +392,26 @@ https://www.tooplate.com/view/2120-Kais-resume
     
      <!-- SCRIPTS -->
      <script>
-document.getElementById("download-cv").addEventListener("click", function (event) {
+document.getElementById("download-cv-fr").addEventListener("click", function (event) {
     event.preventDefault(); // Empêche le comportement par défaut du lien
 
     // URL du fichier à télécharger (mettre ici le chemin réel vers votre fichier CV)
     const cvUrl = "Resume/Kais_2024.pdf"; // Par exemple : 'assets/cv.pdf'
+
+    // Crée un élément temporaire pour simuler le téléchargement
+    const link = document.createElement("a");
+    link.href = cvUrl;
+    link.download = "Kais_Cv_2024.pdf"; // Nom par défaut du fichier téléchargé
+    document.body.appendChild(link); // Ajoute temporairement le lien au DOM
+    link.click(); // Simule le clic pour télécharger
+    document.body.removeChild(link); // Supprime le lien du DOM
+});
+
+document.getElementById("download-cv-ang").addEventListener("click", function (event) {
+    event.preventDefault(); // Empêche le comportement par défaut du lien
+
+    // URL du fichier à télécharger (mettre ici le chemin réel vers votre fichier CV)
+    const cvUrl = "Resume/Kais-2024-EN.pdf"; // Par exemple : 'assets/cv.pdf'
 
     // Crée un élément temporaire pour simuler le téléchargement
     const link = document.createElement("a");
@@ -410,6 +430,10 @@ document.getElementById("download-cv").addEventListener("click", function (event
      <script src="js/custom.js"></script>
      <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
      <script>
+        function togglePopup() {
+    document.body.classList.toggle("popup-open");
+}
+
        // Initialisez EmailJS
        (function () {
          emailjs.init("jnvDs15Mm-V5NHIOT"); // Remplacez YOUR_USER_ID par votre `user_id` EmailJS
